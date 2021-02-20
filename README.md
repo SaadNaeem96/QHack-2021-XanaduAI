@@ -1,4 +1,4 @@
-Secured a place in the top 80, received $250 credits in AWS credits
+Secured a place in the top 80, received $250 credits in AWS credits!
 
 ![image](img/qhack-banner.png)
 
