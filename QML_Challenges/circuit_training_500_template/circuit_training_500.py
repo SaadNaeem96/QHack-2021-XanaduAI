@@ -80,7 +80,7 @@ def classify_data(X_train, Y_train, X_test):
             targets (array[float]): one batch of targets of length `batch_size`
         """
         for start_idx in range(0, inputs.shape[0] - batch_size + 1, batch_size):
-            idxs = slice(start_idx, start_idx + batch_size)
+            #idxs = slice(start_idx, start_idx + batch_size)
             yield inputs[idxs], targets[idxs]
 
     n_layers = 2
