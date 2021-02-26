@@ -2,6 +2,17 @@ import pennylane as qml
 import numpy as np
 from qcircuit_picker import qcircuit_picker
 
+"""
+TODO's and NOTEs
+i've created testing.py for testing the wrapper function, to keep this code clean.
+-I think the default epoch and batch sizes should be chosen better...
+-I haven't defined default cost-function. [cost(nntype, params, x, y, qcircuit, num_qubits, depth)]
+-The predictions are determined by the qubit with the greatest expectation value of PauliZ operator... labels can rename the qubit numer.
+-I think the quantum versions of ann and cnn should be modified to allow interactions between the qubits.
+-The features (train/test input) work only in triplets.
+-test_and_train_data, cost, stepsize, labels, and device are not being check for being valid.
+"""
+
 def wrapper_function(nntype, test_and_train_data, n_qubits, cost, n_layers=1, opt=None, stepsize=0.01, n_epoch=10, batch_size = 10, labels=None, dev=None):
 
     if not isinstance(n_qubits, int):
