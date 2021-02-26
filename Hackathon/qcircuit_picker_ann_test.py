@@ -2,7 +2,7 @@
 """
 Created on Fri Feb 26 00:39:17 2021
 
-@author: Joseph
+QHack 2021 Open Hackthon for submission #35 
 """
 
 #import sys
