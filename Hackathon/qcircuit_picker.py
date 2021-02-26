@@ -2,7 +2,7 @@
 """
 Created on Fri Feb 26 00:32:18 2021
 
-@author: Joseph
+QHack 2021 Open Hackthon for submission #35 
 """
 
 # ToDos:
@@ -21,7 +21,7 @@ Created on Fri Feb 26 00:32:18 2021
     
 #import sys
 import pennylane as qml
-#import numpy as np
+import numpy as np
 
 def qcircuit_picker(nntype, params, features, wires, depth, simulator=None, interface=None, seed=None):
     
@@ -33,13 +33,16 @@ def qcircuit_picker(nntype, params, features, wires, depth, simulator=None, inte
     if nntype == "ann":
         return AnnLayer(params, features, wires, depth)
     elif nntype == "cnn":
-        return "CNN quantum circuit picker is under development..."
+        return CnnLayer(params, features, wires)
     elif nntype == "anntf":
-        return "ANN quantum circuit picker for transfer learning is under development..."
+        return AnnTfLayer()
     elif nntype == "gan":
-        return "GAN quantum circuit picker is under development..."
+        return "GAN quantum circuit picker under development..."
     elif nntype == "gnn":
-        return "GNN quantum circuit picker is under development..."
+        return "GNN quantum circuit picker under development..."
+    
+    return "neural network type of " + nntype + " is not supported...please try ann..."
+
     
 # a layer in an ANN
 # This layer instantiates quantum gates
@@ -73,3 +76,27 @@ def AnnLayer(params, features, wires, depth):
             for w in range(len(wires)):
                 qml.Rot(plist.pop(), plist.pop(), plist.pop(), wires=w)
  
+# build a N-dimensional kernel for CNN, N = 2, 3
+def CnnLayer(params, features, wires, seed=None):
+
+    if seed is None:
+            seed = np.random.randint(low=0, high=10e6)
+            
+    flist = list(features)
+    plist = list(params)
+    
+    # Encoding of features (i.e. classical input values)
+    ret = []
+    for w in wires:
+        qml.RY(flist.pop(), wires=w)
+        qml.RY(plist.pop(), wires=w)
+        ret.append(qml.expval(qml.PauliZ(w)))
+        
+    #RandomLayers(weights, wires=list(wires), seed=seed)    
+    return ret
+
+def AnnTfLayer():
+    print("under development...")
+    return "anntflayer"
+    
+    # consider Hadamrd, RY, CNOT gates...  
