@@ -1,5 +1,7 @@
-Secured a place in the top 80, received $250 credits in AWS credits!
+- Secured a place in the top 80 for the qml challenges to receive a power up of $250 credits in AWS credits!
+- For the hackathon, worked on writing a wrapper for pennylane so that it may be more accessible/similar to classical machine leanring (keras)
 
+Event description: 
 ![image](img/qhack-banner.png)
 
 Welcome to [QHack](https://qhack.ai), the quantum machine learning hackathon! We're thrilled to have the opportunity to meet and work with such a large and diverse group of participants, and we look forward to interacting with you all during the event.
